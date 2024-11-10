@@ -1,0 +1,3 @@
+Standard Deviation between data and theoretical prediction: 0.062
+Standard Deviation between ML model and theoretical prediction: 0.055
+Standard Deviation between ML model and data: 0.046
