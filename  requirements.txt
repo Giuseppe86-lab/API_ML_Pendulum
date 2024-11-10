@@ -55,9 +55,7 @@ jupyterlab_server
 kiwisolver 
 markdown-it-py 
 MarkupSafe 
-matplotlib
-matplotlib.pyplot 
-matplotlib-inline 
+matplotlib 
 mistune 
 mkl-fft 
 mkl-random 
