@@ -62,7 +62,6 @@ mdurl
 mistune 
 mkl-fft 
 mkl-random 
-mkl-service==2.4.0
 mlxtend 
 nbclient 
 nbconvert 
