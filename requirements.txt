@@ -78,6 +78,7 @@ patsy
 pexpect 
 pickleshare 
 pillow
+pip==24.3.1
 platformdirs 
 pooch 
 prompt-toolkit 
