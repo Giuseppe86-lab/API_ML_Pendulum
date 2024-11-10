@@ -79,7 +79,7 @@ parso
 patsy 
 pexpect 
 pickleshare 
-pillow j
+pillow
 platformdirs 
 pooch 
 prompt-toolkit 
