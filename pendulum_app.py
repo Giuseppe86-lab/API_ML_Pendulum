@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Nov 10 13:58:41 2024
-
-@author: giuseppesinatra
-"""
 
 """
 Created on Wed Nov 6 2024
@@ -17,8 +12,6 @@ import pandas as pd
 import math
 import matplotlib.pyplot as plt
 from PIL import Image
-
-
 
 add_sidebar = st.sidebar.selectbox('Menu', ('Home', 'Make a prediction','Prediction on a Dataset','Show result of the Analylis'))
 
