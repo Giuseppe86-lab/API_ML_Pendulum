@@ -112,7 +112,7 @@ smmap
 sniffio 
 soupsieve 
 stack-data 
-statsmodels k
+statsmodels
 streamlit 
 tenacity 
 terminado 
