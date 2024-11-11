@@ -130,5 +130,4 @@ wcwidth
 webencodings==0.5.1
 websocket-client 
 widgetsnbextension 
-zipp
-PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python 
+zipp 
