@@ -191,5 +191,4 @@ elif add_sidebar == 'Show result of the Analylis':
     st.write(info[1])
     st.write(info[2])
 
-if __name__ == '__main__':
-    main()
+
