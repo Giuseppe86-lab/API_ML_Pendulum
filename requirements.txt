@@ -82,7 +82,7 @@ platformdirs
 pooch 
 prometheus-client 
 prompt-toolkit 
-protobuf==4.25.3
+protobuf==3.20.*
 psutil 
 ptyprocess 
 pure-eval 
@@ -130,4 +130,5 @@ wcwidth
 webencodings==0.5.1
 websocket-client 
 widgetsnbextension 
-zipp 
+zipp
+PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python 
