@@ -13,7 +13,7 @@ import math
 import matplotlib.pyplot as plt
 from PIL import Image
 
-add_sidebar = st.sidebar.selectbox('Menu', ('Home', 'Make a prediction','Prediction on a Dataset','Show result of the Analylis'))
+add_sidebar = st.sidebar.selectbox('Menu', ('Home', 'Make a prediction','Prediction on a Dataset','Show result of the Analysis'))
 
 image1 = 'Ritratto_Galileo.jpg'
 image2 = 'ML_brain.png'
@@ -71,7 +71,7 @@ elif add_sidebar == 'Make a prediction':
     angle_rd = angle * math.pi / 180
     if (length < 0 or mass < 0 or angle < 0 or angle > 90):
         st.write('Wrong input please try again')
-    if st.button('Calcola'):
+    if st.button('Calculate'):
         if angle > 20:
             df = pd.read_csv('coefficients.csv')
             intercept = df.at[0, 'Intercept']
@@ -164,7 +164,7 @@ elif add_sidebar == 'Prediction on a Dataset':
         st.markdown('$$T=10^{0.316}\cdot L^{0.516}\cdot \Theta^{0.031}$$')
 
 
-elif add_sidebar == 'Show result of the Analylis':
+elif add_sidebar == 'Show result of the Analysis':
     st.title("Show result of the Analylis")
     st.image("plots_by_angles.jpg", caption="Plots and correlation matrix to data visualization", use_column_width=True)
     st.image("sp_with_constant_length.jpg", caption="Ploths with fixed length")
