@@ -7,10 +7,10 @@ Created on Wed Nov 6 2024
 @author: Giuseppe Sinatra
 """
 
+import plotly.graph_objects as go
 import streamlit as st
 import pandas as pd
 import math
-import matplotlib.pyplot as plt
 from PIL import Image
 
 add_sidebar = st.sidebar.selectbox('Menu', ('Home', 'Make a prediction','Prediction on a Dataset','Show result of the Analysis'))
@@ -117,18 +117,33 @@ elif add_sidebar == 'Prediction on a Dataset':
         y = Sorted_filtered_df['Period (s)']
         y_fit = 10 ** intercept * (Sorted_filtered_df['Length (m)']) ** slope
         y_teo = 2 * math.pi * (Sorted_filtered_df['Length (m)'] / 9.8) ** 0.5
+        # Create the figure
+        fig = go.Figure()
 
-        plt.scatter(X, y, label='Data')
-        plt.plot(X, y_fit, color='red', label='Best Fit')
-        plt.plot(X, y_teo, color='black', label='Th. function')
+        # Scatter plot for actual data
+        fig.add_trace(go.Scatter(x=X, y=y, mode='markers', name='Data', marker=dict(color='blue')))
 
-        plt.title('Comparison between Theory and ML model')
-        plt.xlabel('Length (m)')
-        plt.ylabel('Period (s)')
-        plt.legend()
-        plt.grid(True)
-        plt.savefig('prediction_on_dataset_sa.jpg')
-        st.image('prediction_on_dataset_sa.jpg', use_column_width=True)
+        # Line plot for the best fit line
+        fig.add_trace(go.Scatter(x=X, y=y_fit, mode='lines', name='Best Fit', line=dict(color='red')))
+
+        # Line plot for the theoretical function
+        fig.add_trace(go.Scatter(x=X, y=y_teo, mode='lines', name='Th. function', line=dict(color='black')))
+
+        # Set titles and labels
+        fig.update_layout(
+            title="Comparison between Theory and ML model (Small Anglese)",
+            xaxis_title="Length (m)",
+            yaxis_title="Period (s)",
+            showlegend=True,
+            template="plotly_white"
+        )
+
+        # Show grid
+        fig.update_xaxes(showgrid=True)
+        fig.update_yaxes(showgrid=True)
+
+        # Display in Streamlit
+        st.plotly_chart(fig, use_container_width=True)
         st.text('Equation of the ML model:')
         st.markdown('$$ T = 10^{0.292}\cdot L^{0.509} $$')
 
@@ -144,22 +159,46 @@ elif add_sidebar == 'Prediction on a Dataset':
         z_fit = (10**intercept)*(X**first_param)*(Y**second_param)
         z_teo = 2*math.pi*(X/9.8)**0.5*(1+Y**2/16)
 
-        fig = plt.figure()
-        ax = fig.add_subplot(projection='3d')
+        # Crea il grafico 3D con Plotly
+        fig = go.Figure()
 
-        ax.scatter(X, Y, z, color='blue', label='Data', alpha=0.5)
-        ax.scatter(X, Y, z_fit, color='yellow', label='Best Fit', alpha=0.5)
-        ax.scatter(X, Y, z_teo, color='red', label='Th. function', alpha=0.5)
+        # Dati originali
+        fig.add_trace(go.Scatter3d(
+            x=X, y=Y, z=z,
+            mode='markers',
+            marker=dict(size=5, color='blue', opacity=0.6),
+            name='Data'
+        ))
 
-        ax.set_title('Comparison between Theory and ML model (Small Angles)')
-        ax.set_xlabel('Length (m)')
-        ax.set_ylabel('Angle (rad)')
-        ax.set_zlabel('Period (s)')
-        plt.legend()
-        plt.grid(True)
-        plt.tight_layout()
-        plt.savefig('prediction_on_dataset.jpg')
-        st.image('prediction_on_dataset.jpg', use_column_width=True)
+        # Modello ML
+        fig.add_trace(go.Scatter3d(
+            x=X, y=Y, z=z_fit,
+            mode='markers',
+            marker=dict(size=5, color='yellow', opacity=0.6),
+            name='Best Fit'
+        ))
+
+        # Funzione teorica
+        fig.add_trace(go.Scatter3d(
+            x=X, y=Y, z=z_teo,
+            mode='markers',
+            marker=dict(size=5, color='red', opacity=0.6),
+            name='Th. Function'
+        ))
+
+        # Layout del grafico
+        fig.update_layout(
+            title='Comparison between Theory and ML model',
+            scene=dict(
+                xaxis_title='Length (m)',
+                yaxis_title='Angle (rad)',
+                zaxis_title='Period (s)'
+            ),
+            legend=dict(yanchor="top", y=0.9, xanchor="left", x=0.1),
+        )
+
+        # Mostra il grafico in Streamlit
+        st.plotly_chart(fig, use_container_width=True)
         st.text('Equation of the ML model:')
         st.markdown('$$T=10^{0.316}\cdot L^{0.516}\cdot \Theta^{0.031}$$')
 
