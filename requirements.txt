@@ -113,7 +113,7 @@ sniffio
 soupsieve 
 stack-data 
 statsmodels 
-streamlit 
+streamlit==1.33 
 tenacity 
 terminado 
 threadpoolctl 
