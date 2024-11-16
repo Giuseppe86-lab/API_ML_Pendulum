@@ -178,8 +178,6 @@ def a_prediction():
 def home_page():
     image1 = 'Ritratto_Galileo.jpg'
     image2 = 'ML_brain.png'
-    github_logo = Image.open('logo_github.png')
-    linkedin_logo = Image.open('logo_linkedin.png')
     col1, col2 = st.columns(2)
     with col1:
         st.image(image1, caption='Ritratto di Galileo Galilei di Justus Sustermans (Galleria degli Uffizi, Firenze)',
@@ -214,10 +212,7 @@ def home_page():
 
     col3, col4 = st.columns(2)
     with col3:
-        if st.button('GitHub Repository', key='Git'):
-            st.image(github_logo, width=200)
-            st.markdown('[GitHub](https://github.com/Giuseppe86-lab/Personal_Projects/tree/main/4-Pendolum%20e%20ML)')
+        st.link_button('GitHub Repository', 'https://github.com/Giuseppe86-lab/API_ML_Pendulum')
+
     with col4:
-        if st.button('My Linkedin Profile', key='Linkedin'):
-            st.image(linkedin_logo, width=200)
-            st.markdown('[LinkedIn](http://www.linkedin.com/in/giuseppe-sinatra-phd-ba5835ab)')
+        st.link_button('My Linkedin Profile', 'http://www.linkedin.com/in/giuseppe-sinatra-phd-ba5835ab')

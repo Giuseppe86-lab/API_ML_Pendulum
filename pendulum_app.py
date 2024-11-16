@@ -7,12 +7,8 @@ Created on Wed Nov 6 2024
 @author: Giuseppe Sinatra
 """
 
-import plotly.graph_objects as go
 import streamlit as st
-import pandas as pd
-import math
 import pages
-from PIL import Image
 
 add_sidebar = st.sidebar.selectbox('Menu', ('Home', 'Make a prediction','Prediction on a Dataset','Show result of the Analysis'))
 
