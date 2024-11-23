@@ -7,8 +7,8 @@ Created on Wed Nov 6 2024
 @author: Giuseppe Sinatra
 """
 
-import streamlit as st
 import pages
+import streamlit as st
 
 add_sidebar = st.sidebar.selectbox('Menu', ('Home', 'Make a prediction','Prediction on a Dataset','Show result of the Analysis'))
 

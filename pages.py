@@ -27,7 +27,7 @@ def small_angles_plot(data):
 
     # Set titles and labels
     fig.update_layout(
-        title="Comparison between Theory and ML model (Small Anglese)",
+        title="Comparison between Theory and ML model (Small Angles)",
         xaxis_title="Length (m)",
         yaxis_title="Period (s)",
         showlegend=True,
